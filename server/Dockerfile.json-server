@@ -1,0 +1,17 @@
+# Use Node.js base image
+FROM node:18-alpine
+
+# Set working directory
+WORKDIR /server
+
+# Copy db.json from project root to container
+COPY db.json db.json
+
+# Install json-server
+RUN npm install -g json-server
+
+# Expose port for json-server
+EXPOSE 5000
+
+# Start json-server
+CMD ["json-server", "--watch", "db.json", "--host", "0.0.0.0", "--port", "5000"]
