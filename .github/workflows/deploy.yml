@@ -16,7 +16,7 @@ jobs:
     - name: Build Docker Images
       run: |
         docker build -t tracker-frontend -f Dockerfile .
-        docker build -t tracker-backend -f Dockerfile.json-server .
+        docker build -t tracker-backend -f server/Dockerfile.json-server server/
 
     - name: Run Docker Containers
       run: |
